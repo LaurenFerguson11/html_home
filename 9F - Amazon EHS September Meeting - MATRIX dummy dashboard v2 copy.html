@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MATRIX :: Healthy Energy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#122035; --blue:#0a74d6; --blue-soft:#68a6f1; --blue-pale:#b2ccee; --blue-fill:#0778e2;
+  --green:#1ea200; --green-br:#3baf3c; --green-lt:#7fd04f;
+  --hi:#0a74d6; --ex:#b2ccee; --ac:#ffeb95; --al:#fcbc7e; --li:#f5896d;
+  --ink:#fff; --ink-dim:rgba(255,255,255,.62); --ink-faint:rgba(255,255,255,.34);
+  --line:rgba(255,255,255,.22);
+  --font:'Open Sans','Helvetica Neue',Arial,sans-serif; --r-pill:50px; --r-card:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+sub{font-size:.72em;vertical-align:-.22em;font-weight:inherit}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-weight:600;
+     -webkit-font-smoothing:antialiased}
+.stage{max-width:1560px;margin:0 auto;padding:26px 34px 44px;
+       display:flex;flex-direction:column;gap:20px}
+
+/* ── header ── */
+.hdr{display:flex;justify-content:space-between;align-items:flex-start;gap:28px;flex-wrap:wrap}
+.brandcol{display:flex;gap:18px;align-items:center;margin-bottom:14px}
+.cube{width:60px;height:auto;flex-shrink:0;display:block}
+.brandtext{display:flex;flex-direction:column;gap:5px}
+.wordmark{font-size:16px;font-weight:800;letter-spacing:.24em;line-height:1}
+.wordsub{font-size:9px;font-weight:600;letter-spacing:.2em;color:var(--ink-faint);
+  text-transform:uppercase;line-height:1}
+h1{font-size:26px;font-weight:400;line-height:1.1}
+h1 b{font-weight:700}
+.goal{font-size:14px;font-weight:700;color:var(--green-lt);margin-top:10px}
+.bld{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:700;
+  color:var(--ink-dim);margin-top:7px}
+.bld .dot{width:8px;height:8px;border-radius:50%;background:#6fa200;flex-shrink:0}
+.hdr-right{display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.tag{font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  border-radius:2px;padding:3px 7px;white-space:nowrap}
+.tag.mock{color:var(--ac);border:1px solid rgba(255,235,149,.45)}
+.tag.ctx{color:var(--blue-pale);border:1px solid rgba(178,204,238,.45)}
+.tag.round{color:var(--green-lt);border:1px solid rgba(127,208,79,.5)}
+.tag.base{color:var(--ink-faint);border:1px solid var(--line)}
+.steps{display:flex;align-items:center;gap:10px;font-size:10.5px;font-weight:700;color:var(--ink-dim)}
+.steps span{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.steps i{font-style:normal;width:17px;height:17px;border-radius:50%;border:1px solid var(--blue);
+  color:var(--blue-soft);display:flex;align-items:center;justify-content:center;font-size:9px}
+.steps .arrow{color:var(--ink-faint);border:none}
+
+/* ── cards ── */
+.card{border:1px solid var(--blue);border-radius:var(--r-card);padding:18px 20px 20px}
+.card.pale{border-color:var(--blue-pale)}
+.card.soft{border-color:var(--line)}
+.chead{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px}
+.ttl{font-size:12px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+.ttl.mono{font-size:10.1px}
+.sub{font-size:11px;font-weight:600;color:var(--ink-faint);line-height:1.6;margin-top:5px;max-width:660px}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-dim)}
+
+/* ── rows ── */
+.top{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:20px;align-items:start}
+.bottom{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:stretch}
+@media(max-width:1240px){.top,.bottom{grid-template-columns:minmax(0,1fr)}}
+
+/* ── choices ── */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:820px){.cols{grid-template-columns:1fr}}
+.colhead{margin-bottom:10px}
+.colhead .k{color:var(--green-lt)}
+.colhead .k.blue{color:var(--blue-soft)}
+.togrow{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:9px 0;
+  border-bottom:1px dashed rgba(255,255,255,.08)}
+.togrow:last-child{border-bottom:none}
+.togtxt{font-size:11.8px;font-weight:700}
+.togtxt i{display:block;font-style:normal;font-size:9.5px;font-weight:600;color:var(--ink-faint);
+  margin-top:3px;line-height:1.5}
+.hoursval{font-size:11.8px;font-weight:800;color:var(--blue-pale);white-space:nowrap;margin-top:1px}
+.sw{width:44px;height:22px;border-radius:var(--r-pill);border:1px solid var(--blue);background:transparent;
+  position:relative;cursor:pointer;flex-shrink:0;margin-top:2px;transition:background .18s}
+.sw::after{content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;
+  background:var(--ink);transition:left .18s}
+.sw.on{background:var(--blue)} .sw.on::after{left:24px}
+.fpills{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.fp{height:27px;padding:0 13px;border-radius:var(--r-pill);cursor:pointer;font-family:var(--font);
+  font-size:11px;font-weight:700;color:var(--ink);background:transparent;border:1px solid var(--blue)}
+.fp.on{background:var(--blue)}
+.fp:hover:not(.on){background:rgba(10,116,214,.22)}
+.fnote{font-size:9.5px;font-weight:600;color:var(--ink-faint);margin-top:9px;line-height:1.55}
+.capline{display:flex;align-items:baseline;justify-content:space-between;margin-top:14px;padding-top:12px;
+  border-top:1px solid var(--line)}
+.capline .v{font-size:17px;font-weight:800}
+.actions{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:18px;
+  padding-top:16px;border-top:1px solid var(--line);flex-wrap:wrap}
+.actions .l{display:flex;gap:10px;flex-wrap:wrap}
+button.mini{height:30px;padding:0 18px;border-radius:var(--r-pill);cursor:pointer;font-family:var(--font);
+  font-size:11px;font-weight:700;color:var(--ink);background:transparent;border:1px solid var(--blue)}
+button.mini:hover{background:rgba(10,116,214,.3)}
+button.submit{height:36px;padding:0 26px;border-radius:var(--r-pill);cursor:pointer;font-family:var(--font);
+  font-size:12.4px;font-weight:800;letter-spacing:.03em;color:#fff;background:var(--blue);
+  border:1px solid var(--blue);transition:opacity .18s,box-shadow .18s}
+button.submit:hover{background:#0b83ef}
+button.submit.ready{box-shadow:0 0 0 3px rgba(10,116,214,.28)}
+button.submit:disabled{opacity:.38;cursor:default;box-shadow:none}
+.dirtynote{font-size:10px;font-weight:700;color:var(--ac);margin-top:7px;text-align:right;min-height:13px}
+
+/* ── align ── */
+.daytog{display:flex;gap:6px;margin:14px 0 16px}
+.dt{height:26px;padding:0 14px;border-radius:var(--r-pill);cursor:pointer;font-family:var(--font);
+  font-size:10.5px;font-weight:700;color:var(--ink);background:transparent;border:1px solid var(--blue)}
+.dt.on{background:var(--blue)}
+.dt:hover:not(.on){background:rgba(10,116,214,.22)}
+.dt i{font-style:normal;color:var(--ink-faint);font-weight:600;margin-left:6px}
+.dt.on i{color:rgba(255,255,255,.75)}
+.aw{padding:2px 2px 0}
+.awtrack{position:relative;height:82px;touch-action:none}
+.bar{position:absolute;border-radius:0}
+.bar.ops{top:0;height:44px;background:var(--blue-fill);z-index:2;min-width:20px}
+.bar.occ{top:44px;height:38px;background:var(--green);z-index:2}
+.bar .grip{position:absolute;top:0;width:16px;height:100%;cursor:ew-resize;
+  display:flex;align-items:center;justify-content:center;z-index:5}
+.bar .grip::after{content:'';width:3px;height:52%;min-height:12px;border-radius:2px;background:#fff;
+  box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+.bar .grip.l{left:-8px} .bar .grip.r{right:-8px}
+.bar .cap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:9.5px;font-weight:700;letter-spacing:.06em;pointer-events:none;white-space:nowrap;overflow:hidden}
+.olap{position:absolute;top:0;height:82px;border:2px solid var(--ink);border-radius:0;
+  pointer-events:none;z-index:3}
+.ghost{position:absolute;pointer-events:none;z-index:1;
+  border:1px dashed rgba(255,255,255,.45);background:rgba(255,255,255,.05)}
+.ghost.g-ops{top:0;height:44px}
+.ghost.g-occ{top:44px;height:38px}
+.unocc{position:absolute;top:44px;height:38px;left:0;right:0;display:flex;align-items:center;
+  justify-content:center;font-size:9.5px;font-weight:700;letter-spacing:.14em;
+  color:var(--ink-faint);border:1px dashed rgba(255,255,255,.2);z-index:1}
+.clashband{position:absolute;top:44px;height:38px;pointer-events:none;border:1px solid var(--li);
+  background:repeating-linear-gradient(45deg,rgba(245,137,109,.9) 0 4px,rgba(245,137,109,.35) 4px 8px);
+  z-index:4}
+.setband{position:absolute;top:0;height:82px;pointer-events:none;background:rgba(255,255,255,.04);
+  border-left:1px dashed rgba(255,255,255,.24);border-right:1px dashed rgba(255,255,255,.24)}
+.awaxis{display:flex;justify-content:space-between;margin-top:12px;font-size:9.5px;font-weight:700;
+  color:var(--ink-faint)}
+.awkey{display:flex;gap:14px;margin-top:14px;font-size:9.5px;font-weight:600;color:var(--ink-dim);flex-wrap:wrap}
+.awkey i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.awmeta{font-size:10.5px;font-weight:600;color:var(--ink-faint);margin-top:13px;line-height:1.65}
+.awmeta b{color:var(--ink-dim);font-weight:700}
+.awyours{font-size:10.5px;font-weight:700;color:var(--blue-pale);margin-top:8px;line-height:1.6}
+.awflag{margin-top:9px;font-size:10.5px;font-weight:700;line-height:1.5}
+.awflag.clash{color:var(--li)} .awflag.ok{color:var(--green-lt)}
+.hint{font-size:9.5px;font-weight:600;color:var(--ink-faint);margin-top:10px}
+
+/* ── score strip ── */
+.score{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
+.verdicts{display:flex;gap:16px;flex-wrap:wrap}
+.verdict{border:1px solid var(--line);border-radius:6px;padding:12px 20px;min-width:238px}
+.verdict.people{border-color:rgba(10,116,214,.6);background:rgba(10,116,214,.09)}
+.verdict.energy{border-color:rgba(127,208,79,.45);background:rgba(127,208,79,.07)}
+.verdict strong{display:block;font-size:20px;font-weight:800;margin-top:5px;letter-spacing:-.01em}
+.verdict.people strong{color:var(--blue-pale)}
+.verdict.energy strong{color:var(--green-lt)}
+.verdict small{font-size:11px;font-weight:700;color:var(--ink-faint)}
+
+/* ── result cards ── */
+.vbox{border:1px solid var(--line);border-radius:6px;padding:14px 16px;margin-bottom:16px}
+.vbox .v{font-size:19px;font-weight:800;letter-spacing:-.01em}
+.vbox .v.blue{color:var(--blue-pale)} .vbox .v.green{color:var(--green-lt)}
+.rungs{display:flex;gap:6px;margin-top:11px;flex-wrap:wrap}
+.rung{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid var(--line);border-radius:var(--r-pill);padding:4px 11px;color:var(--ink-faint)}
+.rung.on{border-color:var(--blue);background:var(--blue);color:#fff}
+.mtoggle{display:flex;gap:6px;flex-wrap:wrap}
+.mt{height:26px;padding:0 12px;border-radius:var(--r-pill);cursor:pointer;font-family:var(--font);
+  font-size:10.5px;font-weight:700;color:var(--ink);background:transparent;border:1px solid var(--blue)}
+.mt.on{background:var(--blue)}
+.mt:hover:not(.on){background:rgba(10,116,214,.22)}
+.hp{display:grid;grid-template-columns:auto auto 1fr;gap:14px;align-items:start}
+#hpb{padding-top:20px}
+.hpbadges{position:relative;margin-top:20px;min-width:132px}
+.hpb{position:absolute;left:0;right:0;display:grid;grid-template-columns:26px auto;gap:9px;
+  align-items:center;height:40px}
+.hpb .sq{width:26px;height:26px;border-radius:4px;display:flex;align-items:center;justify-content:center;
+  font-size:17.5px;font-weight:800;color:var(--bg)}
+.hpb .val{font-size:12.4px;font-weight:700}
+.hpb .lab{font-size:9px;font-weight:600;color:var(--ink-dim)}
+.offcol{justify-self:end;margin-top:20px}
+.offhead{font-size:10px;font-weight:700;text-align:center;height:0;margin:0;transform:translateY(-15px)}
+.offbox{border:1px solid var(--ink);border-radius:6.2px;padding:0 11px;position:relative;min-width:76px}
+.offbox .ov{position:absolute;right:11px;font-size:12.4px;font-weight:700;height:40px;
+  display:flex;align-items:center;justify-content:flex-end}
+.hpfoot{font-size:9.5px;font-weight:600;color:var(--ink-faint);margin-top:14px;line-height:1.55}
+
+/* ── energy stats ── */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.stat .big{font-size:27px;font-weight:800;line-height:1.1;margin-top:6px;letter-spacing:-.015em}
+.stat .big.blue{color:var(--blue-pale)} .stat .big.green{color:var(--green-lt)}
+.stat .rng{font-size:11px;font-weight:700;color:var(--ink-dim);margin-top:4px}
+.stat .of{font-size:9.5px;font-weight:600;color:var(--ink-faint);margin-top:3px}
+.prog{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
+.prog .lab{display:flex;align-items:center;justify-content:space-between;font-size:10.5px;
+  font-weight:700;margin-bottom:7px}
+.prog .lab .eyebrow{letter-spacing:.1em}
+.tgttrack{height:12px;border-radius:6px;background:rgba(255,255,255,.07);position:relative}
+.tgtfill{position:absolute;left:0;top:0;height:100%;border-radius:6px;
+  background:linear-gradient(90deg,var(--green),var(--green-lt));transition:width .25s}
+.tgtmark{position:absolute;top:-4px;width:2px;height:20px;background:var(--ink)}
+.tgtwin{font-size:11px;font-weight:700;margin-top:9px;color:var(--green-lt)}
+.tgtwin.no{color:var(--ink-faint)}
+.src{margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
+.srow{display:grid;grid-template-columns:minmax(0,1fr) minmax(90px,1.1fr) 104px;gap:12px;
+  align-items:center;margin-top:11px}
+.srow h5{font-size:11.5px;font-weight:700}
+.srow p{font-size:9.5px;font-weight:600;color:var(--ink-faint);margin-top:2px;line-height:1.45}
+.sbar{height:24px;background:rgba(255,255,255,.05);border-radius:3px;position:relative}
+.sbar i{position:absolute;left:0;top:0;height:100%;border-radius:3px;display:block;
+  background:linear-gradient(90deg,var(--green),var(--green-br));transition:width .25s}
+.sbar i.cap{background:linear-gradient(90deg,#0b5ba8,var(--blue-fill))}
+.sv{text-align:right;font-size:14px;font-weight:800}
+.sv small{display:block;font-size:9.5px;font-weight:600;color:var(--ink-faint);margin-top:1px}
+.verdictline{margin-top:15px;padding-top:13px;border-top:1px solid var(--line);
+  font-size:12px;font-weight:700;line-height:1.6}
+.verdictline.good{color:var(--green-lt)} .verdictline.mid{color:var(--ac)}
+
+/* ── disclosure ── */
+.disc{border:1px solid var(--line);border-radius:var(--r-card)}
+.disc summary{list-style:none;cursor:pointer;padding:13px 18px;font-size:11px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);display:flex;gap:9px;align-items:center}
+.disc summary::-webkit-details-marker{display:none}
+.disc summary::before{content:'+';color:var(--blue-soft);font-size:14px}
+.disc[open] summary::before{content:'\2013'}
+.discbody{padding:2px 18px 20px;font-size:11px;font-weight:600;color:var(--ink-dim);line-height:1.75}
+.discbody b{color:var(--ink);font-weight:700}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#16304f;
+  border:1px solid var(--blue);font-size:11.8px;font-weight:600;padding:10px 18px;border-radius:4px;
+  opacity:0;transition:opacity .25s;pointer-events:none;z-index:99}
+.toast.show{opacity:1}
+</style>
+</head>
+<body>
+<div class="stage">
+
+<!-- ══════════ HEADER ══════════ -->
+<div class="hdr">
+  <div>
+    <div class="brandcol">
+      <img class="cube" id="cube" alt="">
+      <div class="brandtext">
+        <div class="wordmark">9F&thinsp;&middot;&thinsp;MATRIX</div>
+        <div class="wordsub">Healthy Buildings Platform</div>
+      </div>
+    </div>
+    <h1>MATRIX <b>::</b> Healthy Energy</h1>
+    <div class="goal">Can you optimize energy savings and health?</div>
+    <div class="bld"><span class="dot"></span>The Wattson Building &middot; Commercial Office &middot; Cambridge, MA</div>
+  </div>
+  <div class="hdr-right">
+    <div class="steps">
+      <span><i>1</i>Make your choices</span><span class="arrow">&rarr;</span>
+      <span><i>2</i>Submit</span><span class="arrow">&rarr;</span>
+      <span><i>3</i>Read your results</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ TOP: CHOICES + ALIGN ══════════ -->
+<div class="top">
+
+  <section class="card">
+    <div class="chead">
+      <div>
+        <div class="ttl">Your choices</div>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div>
+        <div class="eyebrow colhead">Operational &middot; <span class="k">No capital</span></div>
+        <div class="togrow">
+          <div class="togtxt">Operating &amp; occupancy hours
+            <i>Drag the blue (operations) and green (occupied) bars in the Align panel &rarr;</i></div>
+          <span class="hoursval" id="hoursval"></span>
+        </div>
+        <div class="togrow">
+          <div class="togtxt">Night purge / free cooling
+            <i>Cool night air before HVAC restart. Steadies temperature and lowers morning CO&#8322;.</i></div>
+          <button class="sw" id="sw-purge" aria-label="Night purge"></button>
+        </div>
+        <div class="togrow">
+          <div class="togtxt">Ventilation boost when occupied
+            <i>More outside air. Much better CO&#8322;, costs energy to condition, and brings in
+            outdoor particulate unless filtration is good.</i></div>
+          <button class="sw" id="sw-vent" aria-label="Ventilation boost"></button>
+        </div>
+      </div>
+
+      <div>
+        <div class="eyebrow colhead">Capital upgrades &middot; <span class="k blue">Investment required</span></div>
+        <div class="togrow">
+          <div class="togtxt">High-performance glazing
+            <i>$1.85M &middot; steadies temperature, but a tighter envelope cuts
+            background air so CO&#8322; rises</i></div>
+          <button class="sw" id="sw-glaze" aria-label="Glazing"></button>
+        </div>
+        <div class="togrow">
+          <div class="togtxt">Heat recovery ventilation
+            <i>$920k &middot; adds air cheaply and cuts the cost of a ventilation
+            boost from 1.8% to 0.7%</i></div>
+          <button class="sw" id="sw-erv" aria-label="Heat recovery"></button>
+        </div>
+        <div class="togrow" style="display:block">
+          <div class="togtxt">Filtration upgrade
+            <i>Cleaner air costs fan energy.</i></div>
+          <div class="fpills" id="fpills"></div>
+          <div class="fnote" id="fnote"></div>
+        </div>
+        <div class="capline"><span class="eyebrow">Capital committed</span><span class="v" id="capsum">$0</span></div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <div class="l">
+        <button class="mini" id="btn-reset">Reset</button>
+        <button class="mini" id="btn-best">Show the operations-only best</button>
+      </div>
+      <div>
+        <button class="submit" id="btn-submit">Submit my choices</button>
+        <div class="dirtynote" id="dirtynote"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card pale">
+    <div class="chead">
+      <div>
+        <div class="ttl mono">:: Align</div>
+      </div>
+      <span class="tag ctx">Context</span>
+    </div>
+
+    <div class="daytog" id="daytog"></div>
+
+    <div class="aw">
+      <div class="awtrack" id="awtrack"></div>
+      <div class="awaxis" id="awaxis"></div>
+      <div class="awkey">
+        <span><i style="background:#0778e2"></i>Operations</span>
+        <span><i style="background:#1ea200"></i>Occupied</span>
+        <span><i style="background:transparent;border:2px solid #fff"></i>Shared hours</span>
+        <span><i style="background:rgba(255,255,255,.05);border:1px dashed rgba(255,255,255,.45)"></i>Baseline</span>
+      </div>
+      <div class="awmeta" id="awmeta"></div>
+      <div class="awyours" id="awyours"></div>
+      <div class="awflag" id="awflag"></div>
+      <div class="hint">Drag the white grips at either end of each bar.</div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ RESULTS STRIP ══════════ -->
+<div class="card soft score">
+  <div>
+    <div class="ttl">Your results <span class="tag base" id="roundtag">Baseline</span></div>
+  </div>
+  <div class="verdicts">
+    <div class="verdict people">
+      <span class="eyebrow">Healthy people</span>
+      <strong id="sv-people"></strong>
+    </div>
+    <div class="verdict energy">
+      <span class="eyebrow">Healthy energy</span>
+      <strong id="sv-energy"></strong>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ BOTTOM: PEOPLE + ENERGY ══════════ -->
+<div class="bottom">
+
+  <section class="card">
+    <div class="chead">
+      <div class="ttl mono">:: Healthy People</div>
+      <div class="mtoggle" id="mtoggle"></div>
+    </div>
+
+    <div class="vbox">
+      <div class="v blue" id="hp-verdict"></div>
+      <p class="sub" id="hp-sub"></p>
+      <div class="rungs" id="hp-rungs"></div>
+      <p class="sub" id="hp-note">Falls to Excellent or Conventional when energy savings push occupied hours out of the healthy band.</p>
+    </div>
+
+    <div class="hp">
+      <div id="hpb"></div>
+      <div class="hpbadges" id="hpbadges"></div>
+      <div class="offcol"><div class="offhead">Offset</div><div class="offbox" id="offbox"></div></div>
+    </div>
+    <p class="hpfoot" id="hpfoot"></p>
+  </section>
+
+  <section class="card">
+    <div class="chead"><div class="ttl mono">:: Healthy Energy</div></div>
+
+    <div class="vbox">
+      <div class="v green" id="he-verdict"></div>
+      <p class="sub" id="he-sub"></p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="eyebrow">Energy saving</div>
+        <div class="big blue" id="m-e"></div>
+        <div class="rng" id="m-e-r"></div>
+        <div class="of">of annual HVAC consumption</div>
+      </div>
+      <div class="stat">
+        <div class="eyebrow">Est. annual cost saving</div>
+        <div class="big" id="m-d"></div>
+        <div class="rng" id="m-d-r"></div>
+        <div class="of" id="m-d-s"></div>
+      </div>
+      <div class="stat">
+        <div class="eyebrow">Est. annual carbon saving</div>
+        <div class="big green" id="m-c"></div>
+        <div class="rng" id="m-c-r"></div>
+        <div class="of" id="m-c-s"></div>
+      </div>
+    </div>
+
+    <div class="prog">
+      <div class="lab"><span class="eyebrow">Progress to 12% target</span><b id="t-pct"></b></div>
+      <div class="tgttrack"><div class="tgtfill" id="t-fill"></div><div class="tgtmark" id="t-mark"></div></div>
+      <div class="tgtwin no" id="t-win"></div>
+    </div>
+
+    <div class="src">
+      <div class="eyebrow">Where the saving comes from</div>
+      <div class="srow">
+        <div><h5>Operational strategies</h5><p>Aligning HVAC hours to real occupancy</p></div>
+        <div class="sbar"><i id="b-op"></i></div>
+        <div class="sv"><b id="v-op"></b><small id="v-op-s">no capital</small></div>
+      </div>
+      <div class="srow">
+        <div><h5>Capital upgrades</h5><p>Fabric &amp; plant investment</p></div>
+        <div class="sbar"><i class="cap" id="b-cx"></i></div>
+        <div class="sv"><b id="v-cx"></b><small id="v-cx-s"></small></div>
+      </div>
+      <div class="verdictline" id="verdict"></div>
+    </div>
+  </section>
+</div>
+
+<details class="disc">
+  <summary>How the game works</summary>
+  <div class="discbody">
+    <b>Baseline</b> is the building's current operation: HVAC Operation 6:30AM to 8:00PM every day, occupied
+    8:00AM to 5:00PM on weekdays, unoccupied at weekends. Every figure on the page is the change against that.<br>
+    <b>Setback</b> is whatever sits outside operating hours, counted as 5 weekdays and 2 weekend days a week.
+    Occupied time outside operating hours costs comfort. Operating time beyond occupancy is waste.<br>
+    <b>Baseline</b> 240,000 ft² &middot; 2,400,000 kWh/yr HVAC electricity &middot; $0.21/kWh &middot; 0.24 kgCO₂e/kWh.<br>
+    <b>Night purge</b> +1.4% energy, or +1.7% with glazing, and lowers morning CO₂.
+    <b>Ventilation boost</b> &minus;1.8% energy, or &minus;0.7% with heat recovery; much better CO₂, worse
+    PM<sub>2.5</sub> unless filtration is good. <b>Glazing</b> +6.2% / $1.85M, steadies temperature but the
+    tighter envelope cuts background air so CO₂ rises. <b>Heat recovery</b> +4.4% / $920k and adds air cheaply.
+    <b>Filters</b> cost fan energy as they get finer and set the PM<sub>2.5</sub> floor.<br>
+    <b>Air changes</b> drive CO₂: background air through the envelope plus whatever the systems supply. That is
+    why glazing and ventilation pull in opposite directions.<br>
+    <b>Temperature</b> drifts a little through the envelope even when the hours are right, which is what glazing
+    steadies, and drifts more the longer the setback runs. Push setback too hard and temperature slips out of the
+    health-optimized band.<br>
+    <b>Ranges</b> are ±13% around the central estimate, standing in for modelling and weather uncertainty.<br>
+    <b>Results</b> only change when you submit, so each play is a round rather than a live readout.
+  </div>
+</details>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const CUBE_B64="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";
+document.getElementById('cube').src='data:image/png;base64,'+CUBE_B64;
+
+/* ═══════════ MOCK BUILDING ═══════════ */
+const B={ area:240000, kwh:2400000, rate:0.21, co2:0.24, target:12 };
+const CAPEX={ glaze:{pct:6.2, cap:1850000}, erv:{pct:4.4, cap:920000} };
+const FILTERS=[
+  {k:'MERV 8',  pen:0.0, cap:0,      pm:0.42, note:''},
+  {k:'MERV 11', pen:0.4, cap:30000,  pm:0.28, note:'Modest gain in particulate removal for a small fan energy cost.'},
+  {k:'MERV 13', pen:1.1, cap:85000,  pm:0.13, note:'The usual recommendation for offices. Noticeable fan energy penalty.'},
+  {k:'MERV 16', pen:2.4, cap:210000, pm:0.05, note:'Near-HEPA. Excellent air quality, and it eats into the energy saving.'},
+];
+/* Night purge is worth a little more in a tight envelope, which holds the coolth.
+   A ventilation boost costs far less if heat recovery is fitted to temper the air. */
+const OPS={ purge:{pct:1.4, pctTight:1.7}, vent:{pct:-1.8, pctERV:-0.7} };
+
+/* ═══════════ STATE ═══════════ */
+const DAYS={ weekday:5, weekend:2 };                 // days per week
+
+/* Baseline: the building's current operation. Everything on the page is measured
+   against this. HVAC operates the same long day all week; nobody is in at weekends. */
+const BASELINE={
+  weekday:{ opsStart:6.5, opsEnd:20, occStart:8,  occEnd:17, occupied:true  },
+  weekend:{ opsStart:6.5, opsEnd:20, occStart:10, occEnd:14, occupied:false },
+};
+const DEF={ day:'weekday', purge:false, vent:false, glaze:false, erv:false, filter:0, metric:'temp' };
+const freshSched=()=>JSON.parse(JSON.stringify(BASELINE));
+let S={...DEF, sched:freshSched()};
+const cur=()=>S.sched[S.day];
+
+/* axis: 6AM (6) → 6AM next day (30) */
+const T0=3, T1=27, SPAN=T1-T0;   /* 3AM → 3AM, so operations and the setback tails both show */
+const LIM={ opsStart:[3,22], opsEnd:[3,27], occStart:[6,11], occEnd:[13,22] };
+
+/* ═══════════ HELPERS ═══════════ */
+const hhmm=t=>{const x=((t%24)+24)%24,h=Math.floor(x),m=Math.round((x-h)*60);
+  return `${h%12||12}:${String(m).padStart(2,'0')}${h>=12?'PM':'AM'}`;};
+const dur=h=>{const m=Math.round(h*60),H=Math.floor(m/60),M=m%60;
+  return H?`${H} h${M?' '+M+'m':''}`:`${M} min`;};
+const nf=(v,d=0)=>v.toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d});
+const money=v=>v>=1e6?'$'+(v/1e6).toFixed(2)+'M':(v>=1000?'$'+nf(v/1000,0)+'k':'$'+nf(v));
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+
+/* ═══════════ MODEL ═══════════ */
+function dayMetrics(k, sched){
+  const c = (sched||S.sched)[k];
+  const opsH = c.opsEnd - c.opsStart;                        // plant operating hours
+  const occH = c.occupied ? c.occEnd - c.occStart : 0;       // occupied hours
+  const setH = 24 - opsH;                                    // setback is everything outside operations
+  // with nobody in, nothing can be uncovered and every operating hour is waste
+  const uncovered = c.occupied
+    ? Math.max(0, c.opsStart - c.occStart) + Math.max(0, c.occEnd - c.opsEnd) : 0;
+  const waste = c.occupied
+    ? Math.max(0, c.occStart - c.opsStart) + Math.max(0, c.opsEnd - c.occEnd) : opsH;
+  return { opsH, occH, setH, uncovered, waste, occupied:!!c.occupied };
+}
+
+function weekAvg(sched){
+  const wd = dayMetrics('weekday', sched), we = dayMetrics('weekend', sched);
+  return {
+    wd, we,
+    annual: (wd.setH*DAYS.weekday + we.setH*DAYS.weekend)*52,
+    wUnc: (wd.uncovered*DAYS.weekday + we.uncovered*DAYS.weekend)/7,
+    wOcc: (wd.occH*DAYS.weekday + we.occH*DAYS.weekend)/7,
+    wSet: (wd.setH*DAYS.weekday + we.setH*DAYS.weekend)/7,
+  };
+}
+const BASE_WK = weekAvg(BASELINE);
+
+function derive(){
+  const w = weekAvg(S.sched);
+  const {wd, we, annual, wUnc, wOcc, wSet} = w;
+  const shown = S.day==='weekday' ? wd : we;
+  // saving comes from setback hours won back against the baseline schedule
+  let op = clamp(11*(1-Math.exp(-(annual-BASE_WK.annual)/2400)), -6, 20);
+  if(S.purge) op += S.glaze ? OPS.purge.pctTight : OPS.purge.pct;
+  if(S.vent)  op += S.erv   ? OPS.vent.pctERV     : OPS.vent.pct;
+
+  let cx = 0, cap = 0;
+  if(S.glaze){ cx += CAPEX.glaze.pct; cap += CAPEX.glaze.cap; }
+  if(S.erv)  { cx += CAPEX.erv.pct;   cap += CAPEX.erv.cap; }
+  const f = FILTERS[S.filter];
+  cap += f.cap;
+
+  const total = Math.max(0, op + cx - f.pen);
+  const kwh   = B.kwh*total/100;
+  return { ...shown, wd, we, annual, wUnc, wOcc, wSet, baseAnnual:BASE_WK.annual,
+           op, cx, cap, filterPen:f.pen, total, kwh, cost:kwh*B.rate, tco2:kwh*B.co2/1000 };
+}
+
+/* comfort: stress 0..1 → HEAAL distribution */
+function bands(stress){
+  const s=clamp(stress,0,1);
+  const raw={ 'Health Optimized':93-58*s, 'Excellent':5.4+22*s, 'Action':0.9+16*s,
+              'Alert':0.4+12*s, 'Limit':0.3+8*s };
+  const tot=Object.values(raw).reduce((a,b)=>a+b,0);
+  const out={}; for(const k in raw) out[k]=raw[k]/tot*100;
+  return out;
+}
+/* How much air the space actually gets, relative to the baseline building.
+   A leaky envelope supplies background air for free; high-performance glazing
+   takes most of that away, so CO2 rises unless ventilation makes it up. */
+function ventilation(o){
+  const infil = o.glaze ? 0.35 : 1.0;               // background air through the envelope
+  const mech  = 1.0 + (o.vent ? 1.6 : 0) + (o.erv ? 0.5 : 0);
+  const total = infil*0.45 + mech;
+  return { infil, mech, total, factor: 1.45/total }; // 1.00 at baseline
+}
+
+function stresses(d, o){
+  o = o || S;                                   // pass {} to evaluate with no upgrades
+  const f = FILTERS[o.filter||0];
+  const v = ventilation(o);
+  // occupant load on the space, never zero while the building is in use
+  const occLoad = clamp((d.wOcc-4)/9, 0, 1);
+
+  // temperature: a little drift through the envelope even when hours are right,
+  // plus occupied hours the HVAC does not cover and drift on long setbacks
+  let t = 0.12 + clamp(d.wUnc/3,0,1)*0.72 + clamp((d.wSet-13)/8,0,1)*0.26;
+  if(o.glaze) t*=0.62;
+  if(o.purge) t*=0.88;
+
+  // CO2: occupant load divided by the air the space gets
+  let c = (0.16 + 0.55*occLoad) * v.factor;
+  if(o.purge) c *= 0.88;                        // overnight flush lowers the morning start
+
+  // PM2.5: filtration sets the floor; pushing more outside air through a poor
+  // filter makes it worse, through a good one it barely matters
+  let p = f.pm*(0.82 + 0.18*occLoad);
+  if(o.vent) p *= (0.90 + 0.55*f.pm);
+
+  return {temp:clamp(t,0,1), co2:clamp(c,0,1), pm:clamp(p,0,1)};
+}
+const METRICS={ temp:{n:'Indoor temp',u:'temperature'}, co2:{n:'Indoor CO₂',u:'CO₂'},
+                pm:{n:'Indoor PM<sub>2.5</sub>',u:'PM<sub>2.5</sub>'} };
+const ORDER=['Health Optimized','Excellent','Action','Alert','Limit'];
+const COL={'Health Optimized':'#0a74d6','Excellent':'#b2ccee','Action':'#ffeb95','Alert':'#fcbc7e','Limit':'#f5896d'};
+const BADGE={'Health Optimized':'H','Excellent':'E','Action':'A','Alert':'A','Limit':'L'};
+
+/* ═══════════ ALIGN WIDGET ═══════════ */
+/* Blue = plant operating hours. Green = when the building is actually occupied.
+   Built once and updated in place, so rebuilding cannot kill an in-progress drag. */
+const L=x=>100*(x-T0)/SPAN;
+let drag=null;
+
+function buildAlign(){
+  const track=document.getElementById('awtrack');
+  track.innerHTML=
+   `<div class="setband" id="setband"></div>
+    <div class="bar ops" id="bar-ops">
+      <div class="cap" id="cap-ops"></div>
+      <div class="grip l" data-k="opsStart"></div><div class="grip r" data-k="opsEnd"></div>
+    </div>
+    <div class="bar occ" id="bar-occ">
+      <div class="cap" id="cap-occ"></div>
+      <div class="grip l" data-k="occStart"></div><div class="grip r" data-k="occEnd"></div>
+    </div>
+    <div class="ghost g-ops" id="ghost-ops"></div>
+    <div class="ghost g-occ" id="ghost-occ"></div>
+    <div class="unocc" id="unocc" style="display:none">BUILDING UNOCCUPIED</div>
+    <div class="olap" id="olap" style="display:none"></div>
+    <div class="clashband" id="clash-a" style="display:none"></div>
+    <div class="clashband" id="clash-b" style="display:none"></div>`;
+
+  track.querySelectorAll('.grip').forEach(g=>{
+    g.addEventListener('pointerdown',ev=>{
+      ev.preventDefault();
+      if(!cur().occupied && g.dataset.k.startsWith('occ')) return;   // nothing to set when empty
+      drag={key:g.dataset.k}; document.body.style.cursor='ew-resize';
+    });
+  });
+  window.addEventListener('pointermove',ev=>{
+    if(!drag) return;
+    ev.preventDefault();
+    const r=document.getElementById('awtrack').getBoundingClientRect();
+    let t=T0+((ev.clientX-r.left)/r.width)*SPAN;
+    t=Math.round(t*2)/2;                                     // snap to 30 min
+    const lim=LIM[drag.key]; t=clamp(t,lim[0],lim[1]);
+    const c=cur();
+    if(drag.key==='opsStart') t=Math.min(t,c.opsEnd);       // may close to zero: HVAC off
+    if(drag.key==='opsEnd')   t=Math.max(t,c.opsStart);
+    if(drag.key==='occStart') t=Math.min(t,c.occEnd-2);
+    if(drag.key==='occEnd')   t=Math.max(t,c.occStart+2);
+    if(t!==c[drag.key]){ c[drag.key]=t; render(); }
+  },{passive:false});
+  const stop=()=>{ if(drag){ drag=null; document.body.style.cursor=''; } };
+  window.addEventListener('pointerup',stop);
+  window.addEventListener('pointercancel',stop);
+
+  const ax=document.getElementById('awaxis');
+  for(let t=T0;t<=T1;t+=3){ const s=document.createElement('span'); s.textContent=hhmm(t); ax.appendChild(s); }
+}
+
+function seg(id,a,b){
+  const e=document.getElementById(id);
+  if(b-a>0.001){ e.style.display='block'; e.style.left=L(a)+'%'; e.style.width=(L(b)-L(a))+'%'; }
+  else e.style.display='none';
+}
+
+/* the baseline condition, stated from BASELINE so it cannot drift out of step */
+function baselineSentence(){
+  const wd=BASELINE.weekday, we=BASELINE.weekend;
+  const sameOps = wd.opsStart===we.opsStart && wd.opsEnd===we.opsEnd;
+  const ops = sameOps
+    ? `HVAC Operation <b>${hhmm(wd.opsStart)}</b> to <b>${hhmm(wd.opsEnd)}</b> every day`
+    : `HVAC Operation <b>${hhmm(wd.opsStart)}</b> to <b>${hhmm(wd.opsEnd)}</b> weekdays, ` +
+      `<b>${hhmm(we.opsStart)}</b> to <b>${hhmm(we.opsEnd)}</b> weekends`;
+  const occ = wd.occupied
+    ? `occupied <b>${hhmm(wd.occStart)}</b> to <b>${hhmm(wd.occEnd)}</b> weekdays` : 'unoccupied weekdays';
+  const wend = we.occupied
+    ? `occupied <b>${hhmm(we.occStart)}</b> to <b>${hhmm(we.occEnd)}</b> weekends` : 'unoccupied weekends';
+  return `Baseline: ${ops} &middot; ${occ} &middot; ${wend}`;
+}
+
+function updateAlign(d){
+  const c=cur();
+  const dt=document.getElementById('daytog'); dt.innerHTML='';
+  [['weekday','Weekday','5 days'],['weekend','Weekend','2 days']].forEach(([k,lab,sub])=>{
+    const b=document.createElement('button');
+    b.className='dt'+(S.day===k?' on':'');
+    b.innerHTML=`${lab}<i>${sub}</i>`;
+    b.addEventListener('click',()=>{ S.day=k; render(); });
+    dt.appendChild(b);
+  });
+
+  const bo=document.getElementById('bar-ops'), bc=document.getElementById('bar-occ');
+  bo.style.left=L(c.opsStart)+'%'; bo.style.width=(L(c.opsEnd)-L(c.opsStart))+'%';
+  bc.style.left=L(c.occStart)+'%'; bc.style.width=(L(c.occEnd)-L(c.occStart))+'%';
+
+  // the building is simply not occupied at weekends, so there is no green bar to set
+  bc.style.display = c.occupied ? 'block' : 'none';
+  document.getElementById('unocc').style.display = c.occupied ? 'none' : 'flex';
+
+  // baseline schedule behind the live bars
+  const bl=BASELINE[S.day];
+  const gh=(id,a,b,show)=>{const e=document.getElementById(id);
+    e.style.display=show?'block':'none';
+    if(show){ e.style.left=L(a)+'%'; e.style.width=(L(b)-L(a))+'%'; }};
+  gh('ghost-ops', bl.opsStart, bl.opsEnd, true);
+  gh('ghost-occ', bl.occStart, bl.occEnd, bl.occupied);
+
+  const trackW=document.getElementById('awtrack').getBoundingClientRect().width || 420;
+  const setCap=(id,a,b,px)=>{
+    const e=document.getElementById(id);
+    e.textContent=`${hhmm(a)} – ${hhmm(b)}`;
+    e.style.opacity = px<108 ? '0' : '1';          // no clipped half-words on short bars
+  };
+  setCap('cap-ops', c.opsStart, c.opsEnd, trackW*(c.opsEnd-c.opsStart)/SPAN);
+  setCap('cap-occ', c.occStart, c.occEnd, trackW*(c.occEnd-c.occStart)/SPAN);
+
+  seg('setband', c.opsEnd, Math.min(T1, c.opsStart+24));
+  if(c.occupied){
+    seg('olap', Math.max(c.opsStart, c.occStart), Math.min(c.opsEnd, c.occEnd));
+    seg('clash-a', c.occStart, Math.min(c.opsStart, c.occEnd));
+    seg('clash-b', Math.max(c.opsEnd, c.occStart), c.occEnd);
+  } else {
+    ['olap','clash-a','clash-b'].forEach(id=>document.getElementById(id).style.display='none');
+  }
+
+  document.getElementById('awmeta').innerHTML = baselineSentence();
+
+  const f=document.getElementById('awflag');
+  if(!d.occupied){
+    if(d.waste>0.001){ f.className='awflag clash';
+      f.textContent=`HVAC operation runs ${dur(d.waste)} with the building unoccupied.`; }
+    else { f.className='awflag ok'; f.textContent='HVAC off while the building is empty.'; }
+  }
+  else if(d.uncovered>0.001){ f.className='awflag clash';
+    f.textContent=`${dur(d.uncovered)} of occupied time falls outside operating hours.`; }
+  else if(d.waste>0.001){ f.className='awflag clash';
+    f.textContent=`HVAC operation runs ${dur(d.waste)} longer than the building is occupied.`; }
+  else { f.className='awflag ok';
+    f.textContent='Operating hours match occupancy exactly.'; }
+}
+
+/* ═══════════ HEALTHY PEOPLE ═══════════ */
+/* One geometry drives the building, the badge rows and the offset column, so a
+   floor of the building and its threshold label always sit on the same line. */
+const MAXY=3.8, ROWH=40, ROWPITCH=49;
+const FLOORS=[['Health Optimized',3.43,2.92],['Excellent',2.82,2.31],['Action',2.21,1.70],
+              ['Alert',1.60,1.09],['Limit',0.99,0.48]];
+const PITCH_U=(3.43+2.92)/2-(2.82+2.31)/2;        // model units between floor centres
+const SC=ROWPITCH/PITCH_U;                        // px per model unit
+const SVGH=(MAXY+0.05)*SC+6;
+const rowTop=i=>{const [,yt,yb]=FLOORS[i]; return (MAXY-(yt+yb)/2)*SC - ROWH/2;};
+
+function iso(rec){
+  const SX=SC, SY=SC, sl=-0.31/0.77, sr=0.31/0.77;
+  const rx=x=>x*SX, ry=y=>(MAXY-y)*SY, pt=(x,y)=>`${rx(x).toFixed(1)},${ry(y).toFixed(1)}`;
+  const tot=ORDER.reduce((s,t)=>s+(rec[t]||0),0)||100;
+  let g='';
+  const out=(yt,yb)=>{const a=yt+sl*0.77,b=yb+sl*0.77;
+    g+=`<polygon points="${pt(0,yt)} ${pt(0.77,a)} ${pt(0.77,b)} ${pt(0,yb)}" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.7)" stroke-width=".9"/>`;
+    g+=`<polygon points="${pt(0.77,a)} ${pt(1.54,yt)} ${pt(1.54,yb)} ${pt(0.77,b)}" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.7)" stroke-width=".9"/>`;
+    return {a,b};};
+  out(3.62,3.53);
+  FLOORS.forEach(([n,yt,yb])=>{
+    const p=(rec[n]||0)/tot, fx=1.54*p, {a,b}=out(yt,yb);
+    if(p>0){
+      if(p<=0.5){ const t=yt+sl*fx, bo=yb+sl*fx;
+        g+=`<polygon points="${pt(0,yt)} ${pt(fx,t)} ${pt(fx,bo)} ${pt(0,yb)}" fill="${COL[n]}" opacity=".92"/>`;
+      } else {
+        g+=`<polygon points="${pt(0,yt)} ${pt(0.77,a)} ${pt(0.77,b)} ${pt(0,yb)}" fill="${COL[n]}" opacity=".92"/>`;
+        const t=a+sr*(fx-0.77), bo=b+sr*(fx-0.77);
+        g+=`<polygon points="${pt(0.77,a)} ${pt(fx,t)} ${pt(fx,bo)} ${pt(0.77,b)}" fill="${COL[n]}" opacity=".92"/>`;
+      }
+    }
+  });
+  out(0.29,0.19); FLOORS.forEach(([,yt,yb])=>out(yt,yb));
+  return `<svg width="${(rx(1.54)+6).toFixed(0)}" height="${SVGH.toFixed(0)}" style="display:block;overflow:visible">${g}</svg>`;
+}
+
+
+/* ═══════════ HEALTHY PEOPLE ═══════════ */
+/* Verdict rungs: how the building reads for the metric on show. */
+const RUNGS=['Health-optimized','Excellent','Conventional'];
+function rungOf(hoPct){ return hoPct>=85 ? 0 : (hoPct>=70 ? 1 : 2); }
+
+function renderPeople(rs){
+  // rs is the submitted state; the metric tabs stay live
+  const d=withState(rs,()=>derive());
+  const st=withState(rs,()=>stresses(d));
+  const rec=bands(st[S.metric]);
+  const baseSt=stresses(BASE_WK, {});          // baseline schedule, no upgrades
+  const base=bands(baseSt[S.metric]);
+
+  const mt=document.getElementById('mtoggle'); mt.innerHTML='';
+  Object.entries(METRICS).forEach(([k,m])=>{
+    const b=document.createElement('button'); b.className='mt'+(k===S.metric?' on':'');
+    b.innerHTML=m.n; b.addEventListener('click',()=>{S.metric=k;render();});
+    mt.appendChild(b);
+  });
+
+  const ho=rec['Health Optimized'], ri=rungOf(ho);
+  document.getElementById('hp-verdict').textContent=
+    ri===0 ? 'Health-optimized!' : (ri===1 ? 'Excellent' : 'Conventional');
+  document.getElementById('hp-sub').innerHTML=
+    `${ho.toFixed(1)}% of occupied hours sit in the health-optimized ${METRICS[S.metric].u} band.`;
+  const rg=document.getElementById('hp-rungs'); rg.innerHTML='';
+  RUNGS.forEach((r,i)=>{
+    const e=document.createElement('span'); e.className='rung'+(i===ri?' on':'');
+    e.textContent=r; rg.appendChild(e);
+  });
+
+  document.getElementById('hpb').innerHTML=iso(rec);
+
+  const bad=document.getElementById('hpbadges');
+  bad.style.height=SVGH.toFixed(0)+'px'; bad.innerHTML='';
+  ORDER.forEach((t,i)=>{
+    const el=document.createElement('div'); el.className='hpb';
+    el.style.top=rowTop(i).toFixed(1)+'px';
+    el.innerHTML=`<div class="sq" style="background:${COL[t]}">${BADGE[t]}</div>`+
+      `<div><div class="val">${rec[t].toFixed(1)}%</div><div class="lab">${t}</div></div>`;
+    bad.appendChild(el);
+  });
+
+  const off=document.getElementById('offbox');
+  off.style.height=SVGH.toFixed(0)+'px'; off.innerHTML='';
+  ORDER.forEach((t,i)=>{
+    const dd=rec[t]-base[t], e=document.createElement('div'); e.className='ov';
+    e.style.top=rowTop(i).toFixed(1)+'px';
+    e.style.color=COL[t]; e.style.opacity=Math.abs(dd)<0.05?.45:1;
+    e.textContent=(dd>=0?'+':'')+dd.toFixed(1)+'%'; off.appendChild(e);
+  });
+
+  const v=ventilation(rs);
+  const airTxt=[]; 
+  if(rs.glaze) airTxt.push('tighter envelope');
+  if(rs.vent)  airTxt.push('ventilation boost');
+  if(rs.erv)   airTxt.push('heat recovery');
+  if(rs.purge) airTxt.push('night purge');
+  const drv={temp:'occupied hours the HVAC does not cover'+(rs.glaze?', eased by the glazing upgrade':''),
+             co2:`occupant load against ${(v.factor*100).toFixed(0)}% of baseline air changes`+
+                 (airTxt.length?` (${airTxt.join(', ')})`:''),
+             pm:'filtration grade, '+FILTERS[rs.filter].k+(rs.vent?', with the ventilation boost drawing more outside air':'')};
+  document.getElementById('hpfoot').innerHTML =
+    `Showing hours by ${METRICS[S.metric].u} band. Driven by ${drv[S.metric]}. Offset is against the baseline operation.`;
+  return {ho, ri};
+}
+
+/* ═══════════ SUBMITTED STATE ═══════════ */
+/* Choices live in S. Results are drawn from R, the last submitted snapshot,
+   so the numbers only move when the player submits. */
+const LEVERS=['purge','vent','glaze','erv','filter'];
+function snapshot(){
+  const o={sched:JSON.parse(JSON.stringify(S.sched))};
+  LEVERS.forEach(k=>o[k]=S[k]);
+  return o;
+}
+function withState(st, fn){
+  const keep=S;
+  S={...keep, ...st, sched:st.sched};          // metric and day stay from the live state
+  try { return fn(); } finally { S=keep; }
+}
+let R=null, round=0;
+const isDirty=()=>JSON.stringify(snapshot())!==JSON.stringify(R);
+
+/* ═══════════ RENDER ═══════════ */
+function renderChoices(){
+  const c=cur();
+  const tag=S.day==='weekday'?'Wd':'We';
+  document.getElementById('hoursval').textContent = c.opsEnd-c.opsStart<0.001
+    ? `${tag} HVAC off` : `${tag} ${hhmm(c.opsStart)} – ${hhmm(c.opsEnd)}`;
+  LEVERS.filter(k=>k!=='filter').forEach(k=>
+    document.getElementById('sw-'+k).classList.toggle('on', S[k]));
+
+  const fp=document.getElementById('fpills'); fp.innerHTML='';
+  FILTERS.forEach((f,i)=>{
+    const b=document.createElement('button'); b.className='fp'+(i===S.filter?' on':'');
+    b.textContent=f.k; b.addEventListener('click',()=>{S.filter=i;render();});
+    fp.appendChild(b);
+  });
+  const fn=document.getElementById('fnote');
+  const ftxt=`${FILTERS[S.filter].note}${FILTERS[S.filter].pen?` Costs ${FILTERS[S.filter].pen}% of the energy saving.`:''}`.trim();
+  fn.textContent=ftxt; fn.style.display=ftxt?'':'none';
+
+  const live=derive();
+  document.getElementById('capsum').textContent=money(live.cap);
+
+  const dirty=isDirty(), btn=document.getElementById('btn-submit');
+  btn.disabled=!dirty; btn.classList.toggle('ready',dirty);
+  document.getElementById('dirtynote').textContent =
+    dirty ? 'Choices changed. Submit to update your results.' : '';
+}
+
+function renderResults(rs){
+  const d=withState(rs,()=>derive());
+  const lo=0.87, hi=1.13;
+
+  document.getElementById('m-e').textContent=d.total.toFixed(1)+'%';
+  document.getElementById('m-e-r').textContent=`${(d.total*lo).toFixed(1)}% – ${(d.total*hi).toFixed(1)}%`;
+  document.getElementById('m-d').textContent=money(d.cost);
+  document.getElementById('m-d-r').textContent=`${money(d.cost*lo)} – ${money(d.cost*hi)}`;
+  document.getElementById('m-d-s').textContent=`${nf(d.kwh/1000)} MWh at $${B.rate.toFixed(2)}/kWh`;
+  document.getElementById('m-c').textContent=nf(d.tco2,0)+' tCO₂e';
+  document.getElementById('m-c-r').textContent=`${nf(d.tco2*lo,0)} – ${nf(d.tco2*hi,0)} tCO₂e`;
+  document.getElementById('m-c-s').textContent=`at ${B.co2} kgCO₂e/kWh`;
+
+  const short=B.target-d.total;
+  document.getElementById('he-verdict').textContent=`${d.total.toFixed(1)}% of HVAC energy saved`;
+  document.getElementById('he-sub').textContent = short>0.05
+    ? `${short.toFixed(1)} percentage points short of the ${B.target}% target. Cost and carbon are calculated from energy savings.`
+    : `Target met. Cost and carbon are calculated from energy savings.`;
+
+  const prog=clamp(d.total/B.target,0,1.35);
+  document.getElementById('t-fill').style.width=(prog/1.35*100)+'%';
+  document.getElementById('t-mark').style.left=(1/1.35*100)+'%';
+  document.getElementById('t-pct').textContent=`${d.total.toFixed(1)}% of ${B.target}%`;
+  const win=document.getElementById('t-win');
+  if(d.total>=B.target){ win.className='tgtwin';
+    win.textContent = d.cap===0 ? 'Target hit with no capital committed.'
+                                : `Target hit with ${money(d.cap)} of capital committed.`; }
+  else { win.className='tgtwin no'; win.textContent=`${short.toFixed(1)} percentage points to go.`; }
+
+  const scale=Math.max(d.op,d.cx,B.target,1);
+  document.getElementById('b-op').style.width=(100*Math.max(0,d.op)/scale)+'%';
+  document.getElementById('b-cx').style.width=(100*Math.max(0,d.cx)/scale)+'%';
+  document.getElementById('v-op').textContent=`${d.op.toFixed(1)}%`;
+  document.getElementById('v-cx').textContent=`${d.cx.toFixed(1)}%`;
+  document.getElementById('v-cx-s').textContent=d.cap?`${money(d.cap)} committed`:'nothing committed';
+
+  const v=document.getElementById('verdict');
+  v.style.display=(d.op<=0.5 && d.cap===0)?'none':'';
+  if(d.op<=0.5 && d.cap===0){ v.textContent=''; }
+  else if(d.cap===0){ v.className='verdictline good';
+    v.textContent=`All ${d.total.toFixed(1)}% saved via operational changes. No capital committed.`; }
+  else if(d.op>=d.cx){ v.className='verdictline good';
+    v.textContent=`Operations ${d.op.toFixed(1)}% against ${d.cx.toFixed(1)}% from ${money(d.cap)} of capital.`; }
+  else { v.className='verdictline mid';
+    v.textContent=`Capital ${d.cx.toFixed(1)}% for ${money(d.cap)}. Operations ${d.op.toFixed(1)}% at no cost.`; }
+
+  renderPeople(rs);
+
+  // headline people score = whichever rung the three metrics agree on. Two out of
+  // three carries it; if all three land differently the middle rung stands.
+  // Either way it is fixed across the metric tabs.
+  const st=withState(rs,()=>stresses(withState(rs,()=>derive())));
+  const rungs=Object.keys(METRICS).map(k=>rungOf(bands(st[k])['Health Optimized']));
+  const tally=[0,0,0]; rungs.forEach(r=>tally[r]++);
+  const top=Math.max(...tally);
+  let ri, note;
+  if(top===1){ ri=1; note='one at each level'; }      // 3 different rungs, take the middle
+  else { ri=tally.indexOf(top); note=`${top}/3 ${RUNGS[ri]}`; }
+
+  document.getElementById('roundtag').textContent = round===0 ? 'Baseline' : `Round ${round} · submitted`;
+  document.getElementById('roundtag').className = round===0 ? 'tag base' : 'tag round';
+  document.getElementById('sv-people').innerHTML =
+    (ri===0 ? 'Health-optimized!' : RUNGS[ri]) + ` <small>· ${note}</small>`;
+  document.getElementById('sv-energy').innerHTML =
+    `${d.total.toFixed(1)}% saved <small>· ${B.target}% target</small>`;
+}
+
+function render(){
+  renderChoices();
+  updateAlign(derive());                       // Align always shows the live choices
+  const c=cur();
+  const dayw=S.day==='weekday'?'weekdays':'weekends';
+  document.getElementById('awyours').innerHTML = c.opsEnd-c.opsStart<0.001
+    ? `Your operation: <b>HVAC off</b> ${dayw}`
+    : `Your operation: <b>${hhmm(c.opsStart)}</b> to <b>${hhmm(c.opsEnd)}</b> ${dayw}`;
+  renderResults(R);
+}
+
+/* ═══════════ WIRING ═══════════ */
+LEVERS.filter(k=>k!=='filter').forEach(k=>
+  document.getElementById('sw-'+k).addEventListener('click',()=>{S[k]=!S[k];render();}));
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');
+  clearTimeout(window._t);window._t=setTimeout(()=>t.classList.remove('show'),2000);}
+
+document.getElementById('btn-submit').addEventListener('click',()=>{
+  if(!isDirty()) return;
+  R=snapshot(); round++;
+  render(); toast(`Round ${round} submitted`);
+});
+document.getElementById('btn-reset').addEventListener('click',()=>{
+  S={...DEF, sched:freshSched(), metric:S.metric, day:S.day};
+  R=snapshot(); round=0;
+  render(); toast('Reset to baseline');
+});
+document.getElementById('btn-best').addEventListener('click',()=>{
+  // operations pulled onto occupancy, weekend HVAC wound down to its floor
+  S.sched.weekday={ opsStart:8,  opsEnd:17, occStart:8,  occEnd:17, occupied:true  };
+  S.sched.weekend={ opsStart:11, opsEnd:13, occStart:10, occEnd:14, occupied:false };
+  LEVERS.forEach(k=>S[k]=(k==='purge')?true:(k==='filter'?0:false));
+  R=snapshot(); round++;
+  render(); toast('Operations aligned to occupancy. No capital committed.');
+});
+
+buildAlign();
+R=snapshot();                                  // the baseline is the first result on show
+render();
+</script>
+</body>
+</html>
